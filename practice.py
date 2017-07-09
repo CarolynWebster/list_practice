@@ -192,10 +192,13 @@ def sum_numbers(numbers):
         >>> sum_numbers([])
         0
     """
+    #start with a 0 value - if no numbers given, 0 will be returned
     list_total = 0
+    #loop through the list of numbers
     for num in numbers:
+        #add each number to the list_total
         list_total += num
-
+    #return the total
     return list_total
 
 
@@ -218,10 +221,13 @@ def mult_numbers(numbers):
         >>> mult_numbers([])
         1
     """
+    #we start with a mult total of 1, bc a 0 would make everything 0
     mult_total = 1
+    #loop through the numbers
     for num in numbers:
+        #multiply each new number by the existing total
         mult_total = num * mult_total
-
+    #return the total
     return mult_total
 
 
@@ -241,10 +247,13 @@ def join_strings(words):
         >>> join_strings([])
         ''
     """
+    #create an empty string
     all_strings = ""
+    #loop through the words in the list
     for word in words:
+        #add each word to the all_strings string
         all_strings = all_strings + word
-
+    #return the final string
     return all_strings
 
 
@@ -267,10 +276,13 @@ def average(numbers):
     (Think of the best way to handle an empty input list, though,
     a feel free to provide a good solution here.)
     """
+    #start with a base int of 0
     list_sum = 0
+    #go through the numbers in the list
     for num in numbers:
+        #add them to the list_sum value
         list_sum += num
-
+    #return the average by dividing the total by the length of the list
     return (float(list_sum)/len(numbers))
 
 
@@ -290,7 +302,10 @@ def join_strings_with_comma(words):
         >>> join_strings_with_comma(["Pretzel"])
         'Pretzel'
     """
+    #use join to take the list and add a comma and space between each item
+    #forming a string
     end_list = ", ".join(words)
+    #return the final string
     return end_list
 
 
@@ -316,7 +331,10 @@ def reverse_list(items):
         >>> orig
         ['apple', 'berry', 'cherry']
     """
+    #create copy of the items list in reverse using list slicing
+    #and stepping backwards
     items_list = items[::-1]
+    #return the list
     return items_list
 
 
@@ -342,11 +360,15 @@ def reverse_list_in_place(items):
         >>> orig
         ['I', 'love', 'cookies']
     """
+    #make a copy of the items list in reverse
     items_copy = items[::-1]
+    #loop through the items_copy list using the index position
     for i in range(len(items_copy)):
+        #rebind the items values to match the reversed list items_copy
         items[i] = items_copy[i]
     #QUESTION: seems like this would have a scope issue if the list lived outside the function?
     #I didn't think we could modify an external var from inside a function without returning it?
+    #seems like it would have to be orig = reverse_list_in_place(orig) to work
 
 
 def duplicates(items):
@@ -378,13 +400,21 @@ def duplicates(items):
     items_copy = set(items)
     #convert back to a list with only unique items
     items_copy = list(items_copy)
+    #make an empty list
     dups_list = []
+    #go through the items in the list
     for item in items:
+        #if its in the list of unique items - remove it
+        #we do this so we only add unique terms once
         if item in items_copy:
             items_copy.remove(item)
+        #if it isn't in the unique items list and isn't in the dups_list
+        #add to the dups_list
         elif item not in dups_list:
             dups_list.append(item)
+    #sort them in ascending order
     dups_list.sort()
+    #return the list of duplicates
     return dups_list
 
 
