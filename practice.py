@@ -40,12 +40,15 @@ def long_words(words):
         []
     """
     #make an empty list
-    longer_words = []
-    #loop through the words in the input list
-    for word in words:
-        #if it has more than 4 letters add it to our longer_words list
-        if len(word) > 4:
-            longer_words.append(word)
+    # longer_words = []
+    # #loop through the words in the input list
+    # for word in words:
+    #     #if it has more than 4 letters add it to our longer_words list
+    #     if len(word) > 4:
+    #         longer_words.append(word)
+
+    #trying out comprehension
+    longer_words = [word for word in words if len(word) > 4]
     #return the list of 4+ char words
     return longer_words
 
@@ -72,6 +75,9 @@ def n_long_words(words, n):
         if len(word) > n:
             #add the word to the long_n_words list
             long_n_words.append(word)
+
+    #writing another way
+    long_n_words = [word for word in words if len(word) > n]
     #return the list of long_n_words
     return long_n_words
 
@@ -154,7 +160,10 @@ def halvesies(numbers):
         #at least one num has to be a float in the equation to get a float answer
         #float(num/2) doesn't work bc it just makes the resulting int a float
         halved_numbers.append(float(num) / 2)
-
+    #re-doing in another way
+    #make list using comprehension to get the halved values of all nums in numbers
+    halved_numbers = [float(num) / 2 for num in numbers]
+    #return the list of halved numbers
     return halved_numbers
 
 
@@ -172,6 +181,8 @@ def word_lengths(words):
     for word in words:
         #add their length to the list
         word_lengths.append(len(word))
+    #writing it another way
+    word_lengths = [len(word) for word in words]
     #return the list
     return word_lengths
 
